@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/Users/yehor/Workspace/Test_Example/hello_world/build/CMakeFiles/bootloader
+/Users/yehor/Workspace/Test_Example/hello_world/build/CMakeFiles/bootloader.rule
+/Users/yehor/Workspace/Test_Example/hello_world/build/CMakeFiles/bootloader-complete.rule
+/Users/yehor/Workspace/Test_Example/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/Users/yehor/Workspace/Test_Example/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/Users/yehor/Workspace/Test_Example/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/Users/yehor/Workspace/Test_Example/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/Users/yehor/Workspace/Test_Example/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/Users/yehor/Workspace/Test_Example/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/Users/yehor/Workspace/Test_Example/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
