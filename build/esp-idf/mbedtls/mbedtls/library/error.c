@@ -1,1 +1,0 @@
-/Users/yehor/esp/esp-idf/components/mbedtls/mbedtls/library/error.c
