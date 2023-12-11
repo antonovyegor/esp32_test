@@ -10,9 +10,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/queue.h"
-#include "esp_chip_info.h"
-#include "esp_flash.h"
-#include "esp_system.h"
+
 
 TaskHandle_t task_counter;
 TaskHandle_t task_logging;
@@ -24,9 +22,6 @@ typedef struct log_message_ {
     uint32_t data;
     uint32_t time;
 } log_message;
-
-
-
 
 volatile uint32_t GLOBAL_COUNTER = 0;
 
@@ -43,7 +38,7 @@ void vTask_Counter(void* parameter){
             GLOBAL_COUNTER  = 0 ;
 
         log_message* new_log = malloc(sizeof(log_message));
-        *new_log =(log_message){GLOBAL_COUNTER  , 0};
+        *new_log =(log_message){GLOBAL_COUNTER  , xTaskGetTickCount()};
 
         if (xQueueSend(xQueue,new_log,10) != pdPASS){
             free(new_log);
@@ -58,15 +53,17 @@ void vTask_Logging(void* parametr){
 
     while (xQueue)
     {
+        vTaskDelay(100);
         log_message rec_log;
         if (xQueueReceive(xQueue,&rec_log,10) == pdPASS){
             if (1){
-                sprintf("DATA:%d,TIME:%d",(uint32_t)rec_log.data,(uint32_t)rec_log.time);
+                uint32_t delta_time = xTaskGetTickCount() - rec_log.time;
+                sprintf("DATA:%d,TIME:%d",(uint32_t)rec_log.data,delta_time);
                 free(&rec_log);
                 }
             else
                 printf("ERROR-> Queue : Receive Incomplete\r\n");
-            }
+        }
     }
     
     
